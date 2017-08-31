@@ -22,7 +22,7 @@ public class BirthdayTracker extends Frame implements ActionListener, WindowList
     // Declare the 3 arrays for storing the PC/IP data in memory - each has a maximum size of
 	//         maxEntries (currently equal to 100 entries)
 
-    FriendInfo[] friendInfo = new FriendInfo[maxEntries];
+    BirthdayRecord[] friendInfo = new BirthdayRecord[maxEntries];
     
     Label lblFriendName, lblLikes, lblDislikes, lblDay, lblMonth, lblFind;
     TextField txtFriendName, txtLikes, txtDislikes, txtDay, txtMonth, txtFind;
@@ -181,7 +181,7 @@ public class BirthdayTracker extends Frame implements ActionListener, WindowList
             {
                 numberOfEntries++;
                 currentEntry = numberOfEntries - 1;
-                friendInfo[currentEntry] = new FriendInfo("","","","","");
+                friendInfo[currentEntry] = new BirthdayRecord("","","","","");
                 displayEntry(currentEntry);
             }
         }
@@ -415,7 +415,7 @@ public class BirthdayTracker extends Frame implements ActionListener, WindowList
 				//                                             temporary array - temp[]
                 String[] temp = line.split(",");
                 // Save each entry into its respective PCDataRecord object.
-                friendInfo[i] = new FriendInfo(temp[0],temp[1],temp[2],temp[3],temp[4]); 
+                friendInfo[i] = new BirthdayRecord(temp[0],temp[1],temp[2],temp[3],temp[4]); 
                 i++;  // Increment i so we can keep a count of how many entries have been read in.
             }
 
@@ -462,101 +462,4 @@ public class BirthdayTracker extends Frame implements ActionListener, WindowList
         }
     }
   
-}
-
-
-class FriendInfo 
-{
-    private String FriendName = new String();   
-    private String Likes = new String();
-    private String Dislikes = new String();
-    private String Day = new String();
-    private String Month = new String();
-    
-    
-    public FriendInfo()
-    {    
-        FriendName = "Friend_Name";
-        Likes = "Friend_Likes";
-        Dislikes = "Friend_Dislikes";
-        Day = "Birthday_Day";
-        Month = "Birthday_Month";
-    }
- 
-    public FriendInfo(String name, String likes, String dislikes, String day, String month)
-    {    
-        FriendName = name;
-        Likes = likes;
-        Dislikes = dislikes;
-        Day = day;
-        Month = month;
-    }
-
-
-    /** --------------------------------------------------------
-    * Purpose: A method that will allow the calling class to set the
-    *          3 properties - Name/ID/IP_Address - all at the one time.
-    * @param   PC_Name, PC_ID and IP_Address.
-    * @returns nothing (void).
-    * ----------------------------------------------------------
-    */    
-   public void setfriendInfo(String name, String likes, String dislikes, String day, String month)
-    {    
-        FriendName = name;
-        Likes = likes;
-        Dislikes = dislikes;
-        Day = day;
-        Month = month;
-    }
-
-    public String getFriendName()
-    {
-        return FriendName;
-    }
-
-    public void setFriendName(String FriendName)
-    {
-        this.FriendName = FriendName;
-    }
-
-    public String getLikes()
-    {
-        return Likes;
-    }
-
-    public void setLikes(String Likes)
-    {
-        this.Likes = Likes;
-    }
-
-    public String getDislikes()
-    {
-        return Dislikes;
-    }
-
-    public void setDislikes(String Dislikes)
-    {
-        this.Dislikes = Dislikes;
-    }
-
-    public String getDay()
-    {
-        return Day;
-    }
-
-    public void setDay(String Day)
-    {
-        this.Day = Day;
-    }
-
-    public String getMonth()
-    {
-        return Month;
-    }
-
-    public void setMonth(String Month)
-    {
-        this.Month = Month;
-    }
-
 }
